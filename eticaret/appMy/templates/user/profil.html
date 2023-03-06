@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+    
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div class="card card-style1 border-0">
+                    <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 mb-4 mb-lg-0">
+                        {% if profils.image %} 
+                        <img src="{{ profils.image.url }}"
+                            alt="avatar" class="rounded-circle img-fluid" style="width: 250px; height: 250px; object-fit: cover;">
+                        {% else %}
+                        <img src="{% static 'img/profilresmi.png' %}"
+                        alt="avatar" class="rounded-circle img-fluid" style="width: 250px; height: 250px; object-fit: cover;">
+                        {% endif %}
+                            </div>
+                            <div class="col-lg-4 px-xl-10">
+                                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                    <h3 class="h2 text-white mb-0">{{ profils.user.get_full_name }}</h3>
+                                    
+                                </div>
+                                <ul class="list-unstyled mb-1-9">
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Meslek:</span> {{ profils.job }}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Deneyim:</span> {{ profils.deneyim }} Yıl</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email:</span> {{ profils.user.email }}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Website:</span> {{ profils.web_site }}</li>
+                                    <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Phone:</span> (+90) {{ profils.phone }}</li>
+                                    <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Adres:</span> {{ profils.address }}</li>
+                                </ul>
+                                <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                    <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                    <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                    <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="accordion p-0" id="accordionPanelsStayOpenExample">
+                                   
+                                    <div class="accordion-item active">
+                                      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                          Profil Düzenle
+                                        </button>
+                                      </h2>
+                                      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                        <div class="accordion-body">
+                                            <div class="list-group">
+                                            <div class="mb-2">
+                                                    <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProfil">
+                                            Profil Düzenle
+                                            </button>
+                                        
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modalProfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Profil Change</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="POST" enctype="multipart/form-data">
+                                                                {% csrf_token %}
+                                                                <input type="text" name="job" id="" class="form-control mt-2" placeholder="İş">
+                                                                <input type="text" name="deneyim" id="" class="form-control mt-2" placeholder="Deneyim Süresi">
+                                                                <input type="email" name="email"  id="" class="form-control mt-2"  placeholder="Email">
+                                                                <input type="text" name="website" id="" class="form-control mt-2" placeholder="Website">
+                                                                <input type="tel" name="tel" id="" class="form-control mt-2" placeholder="Telefon">
+                                                                <input type="text" name="address" id="" class="form-control mt-2" placeholder="Adres">
+                                                                <button type="submit" name="formbutton" value="profilChange"
+                                                                    class="btn btn-primary mt-2">Kaydet</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                                </div>
+                                               
+                                            <div class="mb-2">
+                                                <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalResim">
+                                        Profil Resmi 
+                                        </button>
+                                    
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="modalResim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Profil Change</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="POST" enctype="multipart/form-data">
+                                                            {% csrf_token %}
+                                                            <input type="file" name="image" id="" class="form-control mt-2" placeholder="Telefon">
+                                                            <button type="submit" name="formbutton" value="imageChange"
+                                                                class="btn btn-primary mt-2">Kaydet</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        </div>
+                                               
+                                        <div class="mb-2">
+                                            <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSifre">
+                                    Şifre Değiştir 
+                                    </button>
+                                
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="modalSifre" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Şifre Değiştir</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        <input type="password" name="password1" id="" class="form-control mt-2" placeholder="Şifre">
+                                                        <input type="password" name="password2" id="" class="form-control mt-2" placeholder="Yeni Şifre">
+                                                        <input type="password" name="password3" id="" class="form-control mt-2" placeholder="Şifre Tekrar">
+                                                        <button type="submit" name="formbutton" value="sifreChange"
+                                                            class="btn btn-primary mt-2">Kaydet</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                        </div>
+                                               
+                                              </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-4 mb-sm-5">
+                <div>
+                    <span class="section-title text-primary mb-3 mb-sm-4">Hakkımda</span>
+                    <p>Edith is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.</p>
+                </div>
+            </div>
+       
+        </div>
+    </div>
+</section>
+{% endblock body %}
+    

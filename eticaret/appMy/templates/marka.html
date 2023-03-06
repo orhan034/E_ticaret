@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+   <!-- ürünler -->
+   <div class="container-fluid  mt-5">
+    <div class="ozel-urun  mt-5 ">
+      <div class="row  mt-2">
+        
+        <div class="col-12">
+            <h3>{{ marka.title }}</h3>
+          <div class="row ">
+            
+            {% for i in markaurun %}         
+            <div class="col-3">
+               <div class="ozel mb-3">
+                <a href="{% url 'detail' i.id %}"><img src="{{ i.image.url }}" alt="resim"></a>
+                <div class="ozel-bilgi">
+                  <span>{{ i.marka }}</span>
+                  <h5>{{ i.title }}</h5>
+                  <div class="yildiz">
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star"></i>
+                  </div>
+                  <h4>{{ i.price }} TL</h4>
+                </div>
+                <a href="{% url 'detail' i.id %}"><i class="fas fa-shopping-cart cart"></i></a>
+               </div>
+            
+            </div>
+            {% endfor %}
+            <nav aria-label="Page navigation example ">
+                <ul class="pagination justify-content-center mt-3">
+                    {% if markaurun.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="?page={{ markaurun.previous_page_number }}">Geri</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ markaurun.number|add:'-1' }}">{{ markaurun.number|add:"-1" }}</a></li>
+                    {% endif %}
+
+                    <li class="page-item"><a class="page-link" href="?page={{ markaurun.number }}">{{ markaurun.number }}</a></li>
+                    
+                    {% if markaurun.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ markaurun.number|add:'1' }}">{{ markaurun.number|add:"1" }}</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ markaurun.next_page_number }}">İleri</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ markaurun.paginator.num_pages }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+    

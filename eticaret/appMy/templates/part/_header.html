@@ -1,0 +1,91 @@
+<!-- Navbar -->
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-0 m-0">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img style="border-radius: 50%;"
+            src="{% static 'img/logo.png' %}"
+            height="45"
+           
+          />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Anasayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">Ürünler</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+
+      <!-- Icon -->
+      
+      {% if request.user.is_authenticated %}
+      <div class="d-flex align-items-center">
+        <a class="text-reset me-3" href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+     
+        <!-- Avatar -->
+        <div class="dropdown">
+          <a
+            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuAvatar"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+          {% if profils.image %} 
+          <img src="{{ profils.image.url }}"
+              alt="avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+          {% else %}
+          <img src="{% static 'img/profilresmi.png' %}"
+          alt="avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+          {% endif %}
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuAvatar"
+          >
+            <li>
+              <a class="dropdown-item" href="{% url 'profilUser'  %}">Profil</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'logoutUser' %}">Çıkış Yap</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+        {% else %}
+        <li class="nav-item giris" style="list-style-type: none;">
+          <a class="nav-link girisYap" href="{% url 'loginUser' %}">Giriş Yap</a>
+        </li>
+        {% endif %}
+
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+<!-- Navbar -->

@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+  
+
+
+{% block body %}
+  <!-- kayıt -->
+  <div class="container-fluid containers aaaa mb-5 mt-5">
+    <div class="formss">
+        <div class="forms giris">
+            <span class="title">Giriş Yap</span>
+            
+            {% if messages %}      
+                {% for i in messages %} 
+                {% if i.tags != 'warning' %}
+                <div class="text-danger">{{ i }}</div>          
+                {% endif %}   
+                {% endfor %}       
+            {% endif %}
+              
+            <form method="POST" class="form-kayit">
+              {% csrf_token %}
+               <div class="intup-icerik">
+                <input type="text" name="username" style="font-size: 15px;" placeholder="E-posta veya kullanıcı adınızı giriniz..." required>
+                <i class="fa-regular fa-envelope iconn"></i>
+               </div>
+
+               <div class="intup-icerik">
+                <input type="password" name="password" class="password" style="font-size: 15px;" placeholder="Şifrenizi giriniz..." required>
+                <i class="fa-solid fa-lock iconn"></i>
+                <i class="fa-regular fa-eye-slash gozicon"></i>
+               </div>
+             
+               <div class="checkbox-text">
+                   <div class="checkbox-content">
+                    <input type="checkbox" id="logCheck">
+                    <label for="logCheck" class="text">Beni hatırla</label>
+                   </div>
+                   <a href="#" class="text">Şİfrenizi mi unuttunuz?</a>
+               </div>
+
+               <div class="intup-icerik buton">
+            
+                <input type="submit" name="girisbutton" value="Giriş Yap">
+               </div>
+            </form>
+
+            <div class="login-signup">
+                <span class="text">Hesabınız yok mu?
+                    <a href="#" class="text signup-link">Hemen Kayıt Ol</a>
+                </span>
+            </div>
+
+        </div>
+
+        <!-- kayıt ol -->
+        <div class="forms signup">
+            <span class="title">Kayıt ol</span>
+            {% if messages %}  
+            {% for i in messages %} 
+            {% if i.tags != 'success' %}
+            <div class="text-danger">{{ i }}</div>          
+            {% endif %}   
+            {% endfor %}        
+            {% endif %}
+            
+            <form method="POST" class="form-kayit">
+              {% csrf_token %}
+               <div class="intup-icerik">
+                <input type="text" name="name" placeholder="Ad" required>
+                <i class="fa-solid fa-user iconn"></i>
+               </div>
+
+               <div class="intup-icerik">
+                <input type="text" name="surname" placeholder="Soyad" required>
+                <i class="fa-solid fa-user iconn"></i>
+               </div>
+
+               <div class="intup-icerik">
+                <input type="email" name="email" placeholder="Email" required>
+                <i class="fa-regular fa-envelope iconn"></i>
+               </div>
+
+               <div class="intup-icerik">
+                <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+                <i class="fa-solid fa-user iconn"></i>
+               </div>
+
+               <div class="intup-icerik">
+                <input type="password" name="password1" class="password" placeholder="Şifrenizi giriniz..." required>
+                <i class="fa-solid fa-lock iconn"></i>
+                <!-- <i class="fa-regular fa-eye-slash gozicon"></i> -->
+               </div>
+
+               <div class="intup-icerik">
+                <input type="password" name="password2" class="password" placeholder="Şifrenizi tekrar giriniz..." required>
+                <i class="fa-solid fa-lock iconn"></i>
+                <i class="fa-regular fa-eye-slash gozicon"></i>
+               </div>
+             
+               <div class="checkbox-text">
+                   <div class="checkbox-content">
+                    <input type="checkbox" id="logCheck">
+                    <label for="logCheck" class="text">Beni hatırla</label>
+                   </div>
+                   <a href="#" class="text">Şİfrenizi mi unuttunuz?</a>
+               </div>
+                <div class="intup-icerik buton">
+                <input type="submit" name="girisbutton" value="Kayit Ol">
+                </div>
+            </form>
+            
+
+            <div class="login-signup">
+                <span class="text">Hesabın var mı?
+                    <a href="#" class="text login-link">Hemen Giriş Yap</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  const containers = document.querySelector(".containers"),
+    goziconn = document.querySelectorAll(".gozicon"),
+    pass = document.querySelectorAll(".password"),
+    signUp = document.querySelector(".signup-link"),
+    login = document.querySelector(".login-link");
+          
+    goziconn.forEach(eyeIcon =>{
+        eyeIcon.addEventListener("click",()=>{
+            pass.forEach(pass => {
+                if(pass.type==="password"){
+                    pass.type = "text"
+                }
+                else{
+                    pass.type = "password"
+                }
+            })
+        })
+    });
+
+    signUp.addEventListener("click", ( )=>{
+        containers.classList.add("active");
+    });
+
+    login.addEventListener("click", ( )=>{
+        containers.classList.remove("active");
+    }); 
+</script>
+{% endblock body %}
+  

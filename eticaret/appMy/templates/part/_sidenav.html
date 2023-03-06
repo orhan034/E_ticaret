@@ -1,0 +1,10 @@
+<div class="col-3">
+    <h3>Markalar</h3>
+    <div class="list-group">
+      
+      {% for i in categorys %}     
+      <a href="{% url 'marka' i.id %}" class="list-group-item list-group-item-action categorys">{{ i.title }}</a>
+      {% endfor %}
+        
+    </div>
+  </div>

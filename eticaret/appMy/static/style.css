@@ -1,0 +1,499 @@
+/* header start */
+nav .container-fluid{
+    padding-top: 25px !important;
+    padding: 15px 80px;
+    background: rgb(211, 204, 190) ;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.8);
+    position: fixed; 
+    z-index: 999; 
+    margin-top: 60px;
+    width: 100%;
+    transition: 0.7s;
+    margin-top: 15px;
+}
+nav .container-fluid a{
+    color: black;
+    font-size: 20px;
+}
+.girisYap{
+    background-color: #999;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.8);
+    padding: 3px 7px;
+}
+/* header end */
+
+/* Ürünler start */
+/* özel ürünler */
+.ozel-urun{
+    padding: 40px 80px;
+}
+.ozel-urun h1{
+    font-size: 3rem;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    color: #088178;
+}
+.ozel-urun p{
+    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.ozel{
+    margin: 0 30px 0 0;
+    padding: 0px 12px;
+    border: 1px solid #d4cbc6;
+    border-radius: 5px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    transition: 0.7s;
+    overflow: hidden;
+    position: relative;
+}
+.ozel:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.07);
+}
+.ozel img{
+    width: 100%;
+    height: 250px;
+    padding: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.8s;
+}
+.ozel img:hover{
+    transform: scale(1.05); 
+}
+.ozel-bilgi span{
+    color: #333;
+    font-size: 15px;
+    font-weight: 600;
+}
+.ozel-bilgi h5{
+    padding-top: 10px;
+    color: #088178;
+    font-size: 25px;
+}
+.ozel-bilgi i{
+    color: rgb(243, 181, 25);
+    font-size: 17px;
+}
+.ozel-bilgi h4{
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #088178;
+}
+.ozel .cart{
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    background-color: #e8f6ea;
+    font-weight: 600;
+    color: #088178;
+    border: 2px solid #597a5e;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Ürünler end */
+
+/* giriş yap start */
+
+/* kayit */
+ .containers{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+.containers .formss{
+    display: flex;
+    align-items: center;
+    height: 450px;
+    width: 200%;
+    transition: height 0.5s ease;
+}
+.containers.active .formss{
+    height: 650px;
+}
+.containers .forms{
+    width: 50%;
+    padding: 30px;
+    transition: margin-left 0.18s ease;
+}
+.containers.active .giris{
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+.containers .signup{
+    opacity: 0;
+    transition: opcity 0.09s ease;
+
+}
+.containers.active .signup{
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.containers .forms .title{
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+} 
+
+.forms .title::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 60px;
+    background-color: #088178;
+    border-radius: 25px;
+}
+
+.forms .intup-icerik{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+.intup-icerik input{
+    height: 100%;
+    width: 100%;
+    padding:0 35px;
+    font-size: 20px;
+    position: absolute;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: 0.3s;
+
+}
+
+ .intup-icerik input:is(:focus,:valid){
+    border-bottom-color: #088178;
+}
+ 
+.intup-icerik i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 25px;
+}
+
+.forms .intup-icerik input:is(:focus,:valid) ~ i{
+    color: #088178;
+}
+
+.intup-icerik i.iconn{
+    left: 0;
+}
+
+.intup-icerik i.gozicon{
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.forms .checkbox-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input{
+    margin: 0 7px -2px 5px;   
+}
+
+.forms a.text{
+    color: blue;
+    text-decoration: none;
+}
+
+.forms .text{
+    color: #333;
+    font-size: 17px;
+}
+
+.forms a:hover{
+    text-decoration: none;
+    text-decoration: underline;
+}
+
+.forms .buton{
+    margin-top: 30px;
+}
+
+.forms .buton input{
+    border: none;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background-color: #088178;
+}
+
+
+.forms .login-signup{
+    margin-top: 30px;
+    text-align: center;
+} 
+
+/* uye ol */
+.aaaa{
+    margin-top: 100px !important;
+}
+.uye-ol{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: url("img/uye.jfif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+.uye-ol{
+    padding-left:  80px;
+    padding-right: 120px;
+}
+.uye h4{
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+.uye-ol .form{
+    display: flex;
+}
+.form input{
+    height: 40px;
+    width: 45%;
+    padding: 30px;
+    font-size: 25px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 6px 0 0 6px;
+    border: none;
+    outline: none; 
+}
+.uye-ol .form .buton{
+    height: 40px;
+    width: 180px;
+    padding: 30px;
+    font-size: 25px;
+    border-radius:0 6px 6px 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: #088178;
+    color: white;
+    font-weight: bold;
+}
+.form input:focus{
+    border: none;
+}
+
+
+
+/* giriş yap end */
+
+
+.categorys{
+    background-color: #e7e1de;
+    cursor: pointer;
+}
+
+
+/* diğer sayfa no */
+.numaralar {
+    text-align: center;
+    margin-top: 20px;
+}
+.numaralar a{
+    text-decoration: none;
+    background-color: #088178;
+    color: white;
+    padding: 15px 25px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+/* Detail start */
+body{background-color: #ecedee}
+.card{border: none;overflow: hidden}
+.thumbnail_images ul{list-style: none;justify-content: center;display: flex;align-items: center;margin-top:10px}
+.thumbnail_images ul li{margin: 5px;padding: 10px;border: 2px solid #eee;cursor: pointer;transition: all 0.5s}.thumbnail_images ul li:hover{border: 2px solid #000}
+.main_image{display: flex;justify-content: center;align-items: center;border-bottom: 1px solid #eee;height: 400px;width: 100%;overflow: hidden}
+.heart{height: 29px;width: 29px;background-color: #eaeaea;border-radius: 50%;display: flex;justify-content: center;align-items: center}.content p{font-size: 12px}
+.ratings span{font-size: 14px;margin-left: 12px}
+.colors{margin-top: 5px}
+.colors ul{list-style: none;display: flex;padding-left: 0px}
+.colors ul li{height: 20px;width: 20px;display: flex;border-radius: 50%;margin-right: 10px;cursor: pointer}.colors ul li:nth-child(1){background-color: #6c704d}
+.colors ul li:nth-child(2){background-color: #96918b}
+.colors ul li:nth-child(3){background-color: #68778e}
+.colors ul li:nth-child(4){background-color: #263f55}
+.colors ul li:nth-child(5){background-color: black}
+.right-side{position: relative}
+.search-option{position: absolute;background-color: #000;overflow: hidden;align-items: center;color: #fff;width: 200px;height: 200px;border-radius: 49% 51% 50% 50% / 68% 69% 31% 32%;left: 30%;bottom: -250px;transition: all 0.5s;cursor: pointer}
+.search-option .first-search{position: absolute;top: 20px;left: 90px;font-size: 20px;opacity: 1000}
+.search-option .inputs{opacity: 0;transition: all 0.5s ease;transition-delay: 0.5s;position: relative}
+.search-option .inputs input{position: absolute;top: 200px;left: 30px;padding-left: 20px;background-color: transparent;width: 300px;border: none;color: #fff;border-bottom: 1px solid #eee;transition: all 0.5s;z-index: 10}
+.search-option .inputs input:focus{box-shadow: none;outline: none;z-index: 10}
+.search-option:hover{border-radius: 0px;width: 100%;left: 0px}
+.search-option:hover .inputs{opacity: 1}
+.search-option:hover .first-search{left: 27px;top: 25px;font-size: 15px}
+.search-option:hover .inputs input{top: 20px}
+.search-option .share{position: absolute;right: 20px;top: 22px}
+.buttons .btn{height: 50px;width: 150px;border-radius: 0px !important}
+/* Detail end */
+.link-muted { color: #aaa; } .link-muted:hover { color: #1266f1; }
+
+/* Yorum Form start */
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+
+/* yorum form end */
+
+
+/* profil start */
+body{margin-top:20px;}
+.card-style1 {
+    box-shadow: 0px 0px 10px 0px rgb(89 75 128 / 9%);
+}
+.border-0 {
+    border: 0!important;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+
+section {
+    padding: 120px 0;
+    overflow: hidden;
+    background: #fff;
+}
+.mb-2-3, .my-2-3 {
+    margin-bottom: 2.3rem;
+}
+
+.section-title {
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+.text-primary {
+    color: #ceaa4d !important;
+}
+.text-secondary {
+    color: #15395A !important;
+}
+.font-weight-600 {
+    font-weight: 600;
+}
+.display-26 {
+    font-size: 1.3rem;
+}
+
+@media screen and (min-width: 992px){
+    .p-lg-7 {
+        padding: 4rem;
+    }
+}
+@media screen and (min-width: 768px){
+    .p-md-6 {
+        padding: 3.5rem;
+    }
+}
+@media screen and (min-width: 576px){
+    .p-sm-2-3 {
+        padding: 2.3rem;
+    }
+}
+.p-1-9 {
+    padding: 1.9rem;
+}
+
+.bg-secondary {
+    background: #15395A !important;
+}
+@media screen and (min-width: 576px){
+    .pe-sm-6, .px-sm-6 {
+        padding-right: 3.5rem;
+    }
+}
+@media screen and (min-width: 576px){
+    .ps-sm-6, .px-sm-6 {
+        padding-left: 3.5rem;
+    }
+}
+.pe-1-9, .px-1-9 {
+    padding-right: 1.9rem;
+}
+.ps-1-9, .px-1-9 {
+    padding-left: 1.9rem;
+}
+.pb-1-9, .py-1-9 {
+    padding-bottom: 1.9rem;
+}
+.pt-1-9, .py-1-9 {
+    padding-top: 1.9rem;
+}
+.mb-1-9, .my-1-9 {
+    margin-bottom: 1.9rem;
+}
+@media (min-width: 992px){
+    .d-lg-inline-block {
+        display: inline-block!important;
+    }
+}
+.rounded {
+    border-radius: 0.25rem!important;
+}
+/* profil end */
